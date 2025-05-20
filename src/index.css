@@ -44,7 +44,7 @@ h1 {
 	font-family: 'Caprasimo', cursive;
 	font-size: 3rem;
 	margin: 0 auto 3rem auto;
-	color: #e7e200;
+	color: #383624;
 }
 
 #game-container {
@@ -88,7 +88,7 @@ h1 {
 	width: 3rem;
 	border: none;
 	background: none;
-	color: #c3ba78;
+	color: #85c0ff;
 	font-size: 0.9rem;
 	cursor: pointer;
 	transition: color 0.2s;
@@ -97,7 +97,7 @@ h1 {
 }
 
 #players button:hover {
-	color: #f8ca31;
+	color: #474ea3;
 }
 
 .player {
