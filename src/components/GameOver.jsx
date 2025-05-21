@@ -1,4 +1,4 @@
-export const GameOver = ({ winner }) => {
+export const GameOver = ({ winner, onRestart }) => {
 	return (
 		<div id='game-over'>
 			<h2>Game Over!</h2>
@@ -6,7 +6,7 @@ export const GameOver = ({ winner }) => {
 			{winner && <p>{winner} wins!</p>}
 			{!winner && <p>It's a draw!</p>}
 			<p>
-				<button>Play Again</button>
+				<button onClick={onRestart}>Play Again</button>
 			</p>
 		</div>
 	);
