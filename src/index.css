@@ -44,7 +44,7 @@ h1 {
 	font-family: 'Caprasimo', cursive;
 	font-size: 3rem;
 	margin: 0 auto 3rem auto;
-	color: #383624;
+	color: #242938;
 }
 
 #game-container {
@@ -52,7 +52,7 @@ h1 {
 	margin: 3rem auto;
 	padding: 2rem;
 	border-radius: 6px;
-	background: linear-gradient(#383624, #282617);
+	background: linear-gradient(#242d38, #282617);
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 	position: relative;
 }
@@ -75,13 +75,13 @@ h1 {
 }
 
 #players.highlight-player li.active {
-	border-color: #f6e35a;
+	border-color: #5a84f6;
 	animation: pulse 2s infinite ease-in-out;
 }
 
 #players.highlight-player li.active .player-name,
 #players.highlight-player li.active .player-symbol {
-	color: #f6e35a;
+	color: #5a6af6;
 }
 
 #players button {
@@ -127,7 +127,7 @@ h1 {
 	border: none;
 	padding: 0.5rem;
 	animation: pulse-text 2s infinite;
-	background-color: #46432f;
+	background-color: #2f3446;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -151,7 +151,7 @@ ol {
 #pre-game button {
 	cursor: pointer;
 	background: none;
-	color: #f8c031;
+	color: #314ff8;
 	border: none;
 	font-family: 'Caprasimo', cursive;
 	font-size: 4rem;
@@ -182,8 +182,8 @@ ol {
 	width: 8rem;
 	height: 8rem;
 	border: none;
-	background: #aca788;
-	color: #3f3b00;
+	background: #8892ac;
+	color: #000c3f;
 	font-size: 5rem;
 	cursor: pointer;
 	font-family: 'Caprasimo', cursive;
@@ -208,7 +208,7 @@ ol {
 	font-family: 'Caprasimo', cursive;
 	font-size: 4rem;
 	text-align: center;
-	color: #fcd256;
+	color: #5661fc;
 	margin: 0;
 }
 
@@ -223,25 +223,25 @@ ol {
 	margin: 0 auto;
 	font-size: 1.5rem;
 	background: none;
-	border: 2px solid #fcd256;
-	color: #fcd256;
+	border: 2px solid #5667fc;
+	color: #5667fc;
 	padding: 0.5rem 1rem;
 	border-radius: 4px;
 	cursor: pointer;
 	transition: all 0.2s, color 0.2s;
-	box-shadow: 0 0 8px rgba(255, 187, 0, 0.4);
+	box-shadow: 0 0 8px rgba(0, 60, 255, 0.4);
 }
 
 #game-over button:hover {
-	background: #fcd256;
-	color: #3f3b00;
+	background: #5674fc;
+	color: #001d3f;
 	transform: scale(1.1);
-	box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
+	box-shadow: 0 0 20px rgba(0, 119, 255, 0.8);
 }
 
 #log {
 	max-width: 20rem;
-	color: #3f3b00;
+	color: #001d3f;
 	list-style: none;
 	margin: 2rem auto;
 	padding: 0;
@@ -256,7 +256,7 @@ ol {
 }
 
 #log li.highlighted {
-	background-color: #3f3b00;
+	background-color: #00163f;
 	color: white;
 }
 
@@ -281,7 +281,7 @@ ol {
 	cursor: pointer;
 	border: none;
 	background: transparent;
-	color: #23221f;
+	color: #1f2123;
 	font: inherit;
 	margin-top: 1.5rem;
 }
@@ -299,13 +299,13 @@ ol {
 
 @keyframes pulse-text {
 	0% {
-		color: #e1dec7;
+		color: #c7d1e1;
 	}
 	50% {
-		color: #9f9d83;
+		color: #838d9f;
 	}
 	100% {
-		color: #e1dec7;
+		color: #c7d0e1;
 	}
 }
 
@@ -323,16 +323,16 @@ ol {
 
 @keyframes pulse {
 	0% {
-		border-color: #f6e35a;
-		box-shadow: 0 0 0 0 rgba(246, 227, 90, 0.4);
+		border-color: #4d79f3;
+		box-shadow: 0 0 0 0 rgba(90, 158, 246, 0.4);
 	}
 	50% {
-		border-color: #f8c031;
-		box-shadow: 0 0 0 0.5rem rgba(248, 165, 49, 0);
+		border-color: #427eff;
+		box-shadow: 0 0 0 0.5rem rgba(49, 96, 248, 0);
 	}
 	100% {
-		border-color: #f6e35a;
-		box-shadow: 0 0 0 0 rgba(246, 227, 90, 0);
+		border-color: #4775f1;
+		box-shadow: 0 0 0 0 rgba(90, 126, 246, 0);
 	}
 }
 
