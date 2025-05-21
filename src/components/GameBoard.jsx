@@ -26,7 +26,8 @@ export const GameBoard = ({ onSelectSquare, turns }) => {
 								<button
 									onClick={() =>
 										onSelectSquare(rowIndex, colIndex)
-									}>
+									}
+									disabled={playerSymbol !== null}>
 									{playerSymbol}
 								</button>
 							</li>
