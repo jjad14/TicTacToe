@@ -3,6 +3,13 @@ import { useState } from 'react';
 import { GameBoard } from './components/GameBoard';
 import { Player } from './components/Player';
 import { Log } from './components/Log';
+import { WINNING_COMBINATIONS } from './winning-combinations';
+
+const initialGameBoard = [
+	[null, null, null],
+	[null, null, null],
+	[null, null, null]
+];
 
 const deriveActivePlayer = (gameTurns) => {
 	let currentPlayer = 'X';
@@ -19,11 +26,45 @@ function App() {
 	// Keep track of the game turns
 	const [gameTurns, setGameTurns] = useState([]);
 
+	// Determine the active player based on the current game turns
 	const activePlayer = deriveActivePlayer(gameTurns);
+
+	// Default game board
+	let gameBoard = initialGameBoard;
+
+	// Extract each turn to reconstruct the game board
+	for (const turn of gameTurns) {
+		const { square, player } = turn;
+		const { row, col } = square;
+
+		gameBoard[row][col] = player;
+	}
+
+	let winner = null;
+
+	// Iterate through the winning combinations for a match (Winner)
+	for (const combination of WINNING_COMBINATIONS) {
+		const firstSquareSymbol =
+			gameBoard[combination[0].row][combination[0].column];
+		const secondSquareSymbol =
+			gameBoard[combination[1].row][combination[1].column];
+		const thirdSquareSymbol =
+			gameBoard[combination[2].row][combination[2].column];
+
+		// If all three squares have the same symbol then there is a winner
+		if (
+			firstSquareSymbol &&
+			firstSquareSymbol === secondSquareSymbol &&
+			firstSquareSymbol === thirdSquareSymbol
+		) {
+			winner = firstSquareSymbol;
+		}
+	}
 
 	const handleSelectSquare = (rowIndex, colIndex) => {
 		// Update the game turns
 		setGameTurns((prevTurns) => {
+			// Determine the active player based on the previous game turns
 			const currentPlayer = deriveActivePlayer(prevTurns);
 
 			// Update the game turns with the new turn
@@ -54,9 +95,10 @@ function App() {
 						isActive={activePlayer === 'O'}
 					/>
 				</ol>
+				{winner && <p>Winner: {winner}</p>}
 				<GameBoard
 					onSelectSquare={handleSelectSquare}
-					turns={gameTurns}
+					board={gameBoard}
 				/>
 			</div>
 			<Log turns={gameTurns} />
