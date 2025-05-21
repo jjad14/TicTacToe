@@ -26,6 +26,7 @@ const deriveActivePlayer = (gameTurns) => {
 
 function App() {
 	// Keep track of the game turns
+	const [players, setPlayers] = useState({ X: 'Player 1', O: 'Player 2' });
 	const [gameTurns, setGameTurns] = useState([]);
 
 	// Determine the active player based on the current game turns
@@ -59,7 +60,7 @@ function App() {
 			firstSquareSymbol === secondSquareSymbol &&
 			firstSquareSymbol === thirdSquareSymbol
 		) {
-			winner = firstSquareSymbol;
+			winner = players[firstSquareSymbol];
 		}
 	}
 
@@ -90,6 +91,16 @@ function App() {
 		setGameTurns([]);
 	};
 
+	// Update player names
+	const handlePlayerNamesChange = (symbol, newName) => {
+		setPlayers((prevPlayers) => {
+			return {
+				...prevPlayers,
+				[symbol]: newName
+			};
+		});
+	};
+
 	return (
 		<main>
 			<div id='game-container'>
@@ -98,11 +109,13 @@ function App() {
 						initialName='Player 1'
 						symbol='X'
 						isActive={activePlayer === 'X'}
+						onNameChange={handlePlayerNamesChange}
 					/>
 					<Player
 						initialName='Player 2'
 						symbol='O'
 						isActive={activePlayer === 'O'}
+						onNameChange={handlePlayerNamesChange}
 					/>
 				</ol>
 				{(winner || hasDraw) && (

@@ -1,9 +1,17 @@
 import { useState } from 'react';
 
-export const Player = ({ initialName, symbol, isActive }) => {
+export const Player = ({ initialName, symbol, isActive, onNameChange }) => {
 	// Keep track of the player name and whether or not it's being edited
 	const [isEditing, setIsEditing] = useState(false);
 	const [playerName, setPlayerName] = useState(initialName);
+
+	const handleEditClick = () => {
+		setIsEditing((editing) => !editing);
+
+		if (isEditing) {
+			onNameChange(symbol, playerName);
+		}
+	};
 
 	// Default to showing the player name
 	let editablePlayerName = <span className='player-name'>{playerName}</span>;
@@ -27,7 +35,7 @@ export const Player = ({ initialName, symbol, isActive }) => {
 				{editablePlayerName}
 				<span className='player-symbol'>{symbol}</span>
 			</span>
-			<button onClick={() => setIsEditing((editing) => !editing)}>
+			<button onClick={handleEditClick}>
 				{isEditing ? 'Save' : 'Edit'}
 			</button>
 		</li>
